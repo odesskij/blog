@@ -1,0 +1,3 @@
+odesskij_app:
+  resource: "@OdesskijAppBundle/Controller"
+  type: annotation

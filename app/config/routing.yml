@@ -1,0 +1,4 @@
+odesskij_app:
+  resource: @OdesskijAppBundle/Resources/config/routing.yml
+  options:
+    expose: true
