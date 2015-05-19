@@ -21,7 +21,9 @@
     "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
     "incenteev/composer-parameter-handler": "~2.0",
     "friendsofsymfony/rest-bundle": "^1.5",
-    "jms/serializer-bundle": "^0.13.0"
+    "jms/serializer-bundle": "^0.13.0",
+    "guzzlehttp/guzzle": "^5.2",
+    "symfony/dom-crawler": "^2.6"
   },
   "require-dev": {
     "odesskij/generator-bundle": "dev-master"

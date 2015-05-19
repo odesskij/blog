@@ -1,0 +1,78 @@
+{
+  "name": "odesskij-blog",
+  "version": "0.0.0",
+  "homepage": "https://github.com/odesskij/blog",
+  "authors": [
+    "Vladimir Odesskij <odesskij1992@gmail.com>"
+  ],
+  "moduleType": [
+    "amd"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "underscore": "~1.8.3",
+    "backbone": "~1.2.0",
+    "jquery": "~2.1.4",
+    "twig.js": "~0.8.2",
+    "underscore.string": "~3.0.3",
+    "bxslider-4": "~4.2.3",
+    "backbone-relational": "~0.9.0",
+    "backbone-chaining": "~0.1.4",
+    "fancybox": "~2.1.5",
+    "moment": "~2.10.3",
+    "fontawesome": "~4.3.0",
+    "lodash": "~3.8.0",
+    "icheck": "~1.0.2",
+    "favico.js": "~0.3.7"
+  },
+  "overrides": {
+    "normalizeMulti": [
+      {
+        "dependencies": [
+          "icheck"
+        ],
+        "normalize": {
+          "js/jquery": "*.js"
+        }
+      },
+      {
+        "dependencies": [
+          "fontawesome",
+          "bxslider-4"
+        ],
+        "normalize": {
+          "img": [
+            "*.jpeg",
+            "*.png",
+            "*.jpg",
+            "*.svg",
+            "*.gif"
+          ],
+          "font": [
+            "*.ttf",
+            "*.woff2",
+            "*.woff",
+            "*.otf",
+            "*.eot"
+          ]
+        }
+      }
+    ],
+    "fancybox": {
+      "main": "source/jquery.fancybox.js"
+    },
+    "twig.js": {
+      "main": "twig.js"
+    },
+    "icheck": {
+      "main": "icheck.js"
+    }
+  }
+}
