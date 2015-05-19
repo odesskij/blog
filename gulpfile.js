@@ -2,32 +2,36 @@
 (function () {
     'use strict';
     var gulp = require('gulp'),
-        watch = require('gulp-watch'), //https://github.com/floatdrop/gulp-watch
-        jshint = require('gulp-jshint'), // https://github.com/spalger/gulp-jshint
+        gutil = require('gulp-util'),
+    // watch = require('gulp-watch'), //https://github.com/floatdrop/gulp-watch
+    // jshint = require('gulp-jshint'), // https://github.com/spalger/gulp-jshint
         uglify = require('gulp-uglify'), // github.com/terinjokes/gulp-uglify
-        run = require('gulp-run'); // https://github.com/cbarrick/gulp-run
+    // run = require('gulp-run'), // https://github.com/cbarrick/gulp-run
+        bower = require('main-bower-files'), // https://github.com/ck86/main-bower-files
+        normalizer = require('gulp-bower-normalize'), // https://github.com/cthrax/gulp-bower-normalize
+        gulpif = require('gulp-if'), // https://github.com/robrich/gulp-if
+    // ignore = require('gulp-ignore'), // https://github.com/robrich/gulp-ignore
+        minifyCss = require('gulp-minify-css'); // https://github.com/jonathanepollack/gulp-minify-css
 
-    gulp.task('build-bower', function () {
-        var bower = require('main-bower-files');
-        var bowerNormalizer = require('gulp-bower-normalize');
-        return gulp.src(bower(), {base: './bower_components'})
-            .pipe(bowerNormalizer({bowerJson: './bower.json', flatten: true}))
-            .pipe(gulp.dest('./web/resources'));
+
+    var options = {"base": './bower_components'};
+    var normalizerOptions = {"bowerJson": './bower.json', "flatten": true};
+    var dest = './web/resources';
+
+
+    gulp.task('build-assets', function () {
+        return gulp.src(bower(), options)
+            .pipe(normalizer(normalizerOptions))
+            /* ---- for dev ---- */
+            .pipe(gulpif('**/*.js', uglify().on('error', gutil.log)))
+            .pipe(gulpif('**/*.css', minifyCss()))
+            /* ---- for dev ---- */
+            .pipe(gulp.dest(dest));
+
     });
 
-    gulp.task('build-dev', ['build-bower'], function () {
+    gulp.task('default', ['build-assets'], function () {
 
     });
 
-    gulp.task('build-prod', ['build-bower'], function () {
-        gulp.src('./web/resources/js/**.js')
-            .pipe(uglify({
-                "mangle": false
-            }))
-            .pipe(gulp.dest('web/build'));
-    });
-
-    gulp.task('unpacking', function () {
-        run('bower install').exec();
-    });
 })();
