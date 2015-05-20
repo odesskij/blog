@@ -11,8 +11,9 @@
         normalizer = require('gulp-bower-normalize'), // https://github.com/cthrax/gulp-bower-normalize
         gulpif = require('gulp-if'), // https://github.com/robrich/gulp-if
     // ignore = require('gulp-ignore'), // https://github.com/robrich/gulp-ignore
-        minifyCss = require('gulp-minify-css'); // https://github.com/jonathanepollack/gulp-minify-css
-
+        minifyCss = require('gulp-minify-css'), // https://github.com/jonathanepollack/gulp-minify-css
+    //sass = require('gulp-ruby-sass'), // https://github.com/sindresorhus/gulp-ruby-sass
+        sass = require('gulp-sass'); //https://github.com/dlmanning/gulp-sass
 
     var options = {"base": './bower_components'};
     var normalizerOptions = {"bowerJson": './bower.json', "flatten": true};
@@ -22,10 +23,10 @@
     gulp.task('build-assets', function () {
         return gulp.src(bower(), options)
             .pipe(normalizer(normalizerOptions))
-            /* ---- for dev ---- */
+            /* ----  for prodaction ---- */
             .pipe(gulpif('**/*.js', uglify().on('error', gutil.log)))
             .pipe(gulpif('**/*.css', minifyCss()))
-            /* ---- for dev ---- */
+            /* ---- /for prodaction ---- */
             .pipe(gulp.dest(dest));
 
     });
@@ -34,4 +35,10 @@
 
     });
 
+    gulp.task('sass', function () {
+        gulp.src('test/*.scss')
+            .pipe(sass().on('error', sass.logError))
+            .pipe(minifyCss())
+            .pipe(gulp.dest('test/dist'));
+    });
 })();
