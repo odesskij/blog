@@ -14,10 +14,8 @@ class AppController
      * @Rest\Get("/{name}")
      * @Rest\View()
      */
-    public function indexAction($name = 'anon.')
+    public function indexAction()
     {
-        return [
-            'name' => $name
-        ];
+        return [];
     }
 }

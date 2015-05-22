@@ -20,6 +20,37 @@ class Post
     protected $id;
 
     /**
+     * @ORM\Column(type="text")
+     * @var string
+     */
+    protected $title;
+
+    /**
+     * @ORM\Column(type="text")
+     * @var string
+     */
+    protected $content;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @var \Datetime
+     */
+    protected $createdAt;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @var \Datetime
+     */
+    protected $updatedAt;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Odesskij\Bundle\AppBundle\Entity\User", inversedBy="posts")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @var User
+     */
+    protected $user;
+
+    /**
      * @return int
      */
     public function getId()

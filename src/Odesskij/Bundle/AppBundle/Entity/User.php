@@ -1,6 +1,7 @@
 <?php
 namespace Odesskij\Bundle\AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as Serializer;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
@@ -25,31 +26,31 @@ class User implements AdvancedUserInterface
      * @var string
      */
     protected $email;
-
-    /**
-     * @ORM\Column(type="string")
-     * @var string
-     */
-    protected $password;
-
-    /**
-     * @ORM\Column(type="string")
-     * @var string
-     */
-    protected $salt;
-
-    /**
-     * @ORM\Column(type="array")
-     * @var array
-     */
-    protected $roles;
-
     /**
      * @ORM\Column(type="boolean")
      * @var boolean
      */
     protected $enabled;
-
+    /**
+     * @ORM\Column(type="string")
+     * @var string
+     */
+    protected $password;
+    /**
+     * @ORM\OneToMany(targetEntity="Odesskij\Bundle\AppBundle\Entity\Post", mappedBy="user")
+     * @var Post[]|ArrayCollection
+     */
+    protected $posts;
+    /**
+     * @ORM\Column(type="array")
+     * @var array
+     */
+    protected $roles;
+    /**
+     * @ORM\Column(type="string")
+     * @var string
+     */
+    protected $salt;
 
     /**
      * {@inheritdoc}
