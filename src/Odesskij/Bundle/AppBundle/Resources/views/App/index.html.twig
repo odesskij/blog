@@ -1,1 +1,27 @@
-Hello {{ name }}!
+{% extends '::base.html.twig' %}
+
+{% block title %}
+  {{ 'Главная.'|upper }}
+{% endblock %}
+{% block javascripts %}
+  {{ parent() }}
+  <script src="{{ asset('bundles/odesskijapp/js/index.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+  <div id="main-content">
+
+  </div>
+  <script id="layout-view-template" type="text/template">
+    <section>
+      <navigation id="menu"><%=name %></navigation>
+      <article id="content">...</article>
+    </section>
+  </script>
+
+  <script id="post-list-item-template" type="text/template">
+    <li>
+      <%=title %>
+    </li>
+  </script>
+{% endblock %}

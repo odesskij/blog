@@ -2,3 +2,7 @@ odesskij_app:
   resource: @OdesskijAppBundle/Resources/config/routing.yml
   options:
     expose: true
+
+
+fos_js_routing:
+  resource: @FOSJsRoutingBundle/Resources/config/routing/routing.xml

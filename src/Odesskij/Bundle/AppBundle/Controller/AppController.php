@@ -11,7 +11,7 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 class AppController
 {
     /**
-     * @Rest\Get("/{name}")
+     * @Rest\Get("/", name="index")
      * @Rest\View()
      */
     public function indexAction()

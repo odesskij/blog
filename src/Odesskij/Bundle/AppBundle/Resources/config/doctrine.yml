@@ -1,0 +1,6 @@
+services:
+  odesskij_app.repo.post:
+    class:            Odesskij\Bundle\AppBundle\Entity\PostRepository
+    factory_service:  doctrine.orm.entity_manager
+    factory_method:   getRepository
+    arguments: [OdesskijAppBundle:Post]

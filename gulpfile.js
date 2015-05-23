@@ -20,18 +20,18 @@
     var dest = './web/resources';
 
 
-    gulp.task('build-assets', function () {
+    gulp.task('build', function () {
         return gulp.src(bower(), options)
             .pipe(normalizer(normalizerOptions))
             /* ----  for prodaction ---- */
-            .pipe(gulpif('**/*.js', uglify().on('error', gutil.log)))
-            .pipe(gulpif('**/*.css', minifyCss()))
+            //.pipe(gulpif('**/*.js', uglify().on('error', gutil.log)))
+            //.pipe(gulpif('**/*.css', minifyCss()))
             /* ---- /for prodaction ---- */
             .pipe(gulp.dest(dest));
 
     });
 
-    gulp.task('default', ['build-assets'], function () {
+    gulp.task('default', ['build'], function () {
 
     });
 

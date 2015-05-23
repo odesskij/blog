@@ -30,7 +30,11 @@
     "fontawesome": "~4.3.0",
     "lodash": "~3.8.0",
     "icheck": "~1.0.2",
-    "favico.js": "~0.3.7"
+    "favico.js": "~0.3.7",
+    "backbone.marionette": "~2.4.1",
+    "requirejs": "~2.1.17",
+    "requirejs-domready": "~2.0.1",
+    "requirejs-plugins": "~1.0.3"
   },
   "overrides": {
     "normalizeMulti": [
@@ -40,6 +44,14 @@
         ],
         "normalize": {
           "js/jquery": "*.js"
+        }
+      },
+      {
+        "dependencies": [
+          "requirejs-plugins"
+        ],
+        "normalize": {
+          "js/requirejs": "*.js"
         }
       },
       {
@@ -73,6 +85,9 @@
     },
     "icheck": {
       "main": "icheck.js"
+    },
+    "requirejs-domready": {
+      "main": "domReady.js"
     }
   }
 }
