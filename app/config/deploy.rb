@@ -1,5 +1,6 @@
 default_run_options[:pty] = true
-set :use_sudo, false
+
+set :use_sudo,    false
 set :application, "capifony"
 set :user,        "capifony"
 set :domain,      "capifony.alpha.branderstudio.com"
