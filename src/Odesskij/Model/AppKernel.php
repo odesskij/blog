@@ -44,7 +44,7 @@ class AppKernel extends Kernel
             $bundles[] = new \Symfony\Bundle\DebugBundle\DebugBundle();
             $bundles[] = new \Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new \Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
-            $bundles[] = new \Odesskij\Bundle\GeneratorBundle\OdesskijGeneratorBundle();
+            //$bundles[] = new \Odesskij\Bundle\GeneratorBundle\OdesskijGeneratorBundle();
         }
 
         return $bundles;
